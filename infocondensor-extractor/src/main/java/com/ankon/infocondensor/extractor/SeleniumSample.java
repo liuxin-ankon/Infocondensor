@@ -14,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class SeleniumSample {
 
     public static void main(String[] args) {
-
+        //download and install chrome browser
         //download "chromedriver" from https://chromedriver.storage.googleapis.com/index.html?path=2.30/
         //replace D:\\softs\\dev\\chromedriver.exe with the path where chromedriver in your PC
         System.setProperty("webdriver.chrome.driver", "D:\\softs\\dev\\chromedriver.exe");
