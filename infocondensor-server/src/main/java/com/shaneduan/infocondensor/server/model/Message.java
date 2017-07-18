@@ -26,6 +26,8 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Size(max = 1024)
+    private String website;
+    @Size(max = 1024)
     private String title;
     @Size(max = 40960)
     private String content;

@@ -1,5 +1,5 @@
 
-package com.ankon.infocondensor.extractor;
+package com.shaneduan.infocondensor.extractor;
 
 import java.util.List;
 import org.openqa.selenium.By;

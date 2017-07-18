@@ -1,0 +1,118 @@
+swagger: '2.0'
+info:
+  description: This is API definition of infocondensor-server.
+  version: 1.0.0
+  title: Infocondensor Server
+  contact:
+    email: xin.liu@ankoinc.com.cn
+host: 'localhost:8080'
+basePath: /
+tags:
+  - name: message
+    description: Everything about message
+schemes:
+  - http
+paths:
+  /message/refresh:
+    post:
+      tags:
+        - message
+      summary: Request new messages from server.
+      description: ''
+      operationId: refreshMessage
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Request parameters to server.
+          required: true
+          schema:
+            $ref: '#/definitions/RefreshRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            example:
+              - id: 150029517202
+                website: https://www.kidsbestjobs.com
+                title: Teaching Assistant
+                content: |-
+                  Job Provider: EDU Express
+                  Job Location: San Ramon,Contra Costa, California
+                url: >-
+                  https://www.kidsbestjobs.com/kids-best-job-web/pages/job_detail.html?id=91
+                createTime: 1500295172026
+              - id: 1500295172041
+                website: https://www.kidsbestjobs.com
+                title: Programming
+                content: |-
+                  Job Provider: Young Ivy Academy
+                  Job Location: Pleasanton,Alameda, California
+                url: >-
+                  https://www.kidsbestjobs.com/kids-best-job-web/pages/job_detail.html?id=94
+                createTime: 1500295172026
+            items:
+              $ref: '#/definitions/Message'
+  /message:
+    post:
+      tags:
+        - message
+      summary: Post new message to server.
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Request Object.
+          required: true
+          schema:
+            type:  object
+            example:
+              id: 1500295172026
+              website: https://www.kidsbestjobs.com 
+              title: Teaching Assistant
+              content: |-
+                Job Provider: EDU Express
+                Job Location: San Ramon,Contra Costa, California
+              url: >-
+                https://www.kidsbestjobs.com/kids-best-job-web/pages/job_detail.html?id=91
+              createTime: 1500295172026
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: OK
+definitions:
+  Message:
+    type: object
+    properties:
+      id:
+        type: integer
+      website:
+        type: string
+      title:
+        type: string
+      content:
+        type: string
+      url:
+        type: string
+      createTime:
+        type: string
+        format: date-time
+  RefreshRequest:
+    type: object
+    properties:
+      websites:
+        type: array
+        example:
+          - 'https://www.kidsbestjobs.com'
+          - 'https://www.amazon.com'
+      lastRequestTime:
+        type: string
+        format: date-time

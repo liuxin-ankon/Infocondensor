@@ -17,6 +17,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
  */
 @CrossOrigin
 @RepositoryRestResource(collectionResourceRel = "elements", path = "message")  
-public interface MessageRepository extends PagingAndSortingRepository<Message, String> {
+public interface MessageRepository extends PagingAndSortingRepository<Message, Long> {
     
 }
