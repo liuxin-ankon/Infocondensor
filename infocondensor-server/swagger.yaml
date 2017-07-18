@@ -5,7 +5,7 @@ info:
   title: Infocondensor Server
   contact:
     email: xin.liu@ankoinc.com.cn
-host: 'localhost:8080'
+host: 'test.ankoncon.com:90'
 basePath: /
 tags:
   - name: message
@@ -75,7 +75,6 @@ paths:
           schema:
             type:  object
             example:
-              id: 1500295172026
               website: https://www.kidsbestjobs.com 
               title: Teaching Assistant
               content: |-
@@ -84,7 +83,6 @@ paths:
               url: >-
                 https://www.kidsbestjobs.com/kids-best-job-web/pages/job_detail.html?id=91
               createTime: 1500295172026
-            $ref: '#/definitions/Message'
       responses:
         '200':
           description: OK
